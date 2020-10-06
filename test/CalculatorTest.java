@@ -42,4 +42,42 @@ public class CalculatorTest {
 		assert(div == 2);
 		assert(mult == 6);
 	}
+	
+	
+	
+	
+	/********************************************************/
+	/* THIS PART BELOW IS ADDED AFTER TEST AT MALTEM OFFICE */
+	/********************************************************/
+	@Test
+	void additionNominalTest() {
+		Double result = calculator.addition(2, 3);
+		assert(result == 5);
+	}
+	@Test
+	void subtractionNominalTest() {
+		Double result = calculator.subtraction(2, 3);
+		assert(result == -1);
+	}
+	@Test
+	void divisionNominalTest() {
+		Double result = calculator.division(10, 2);
+		assert(result == 5);
+	}
+	@Test
+	void multiplicationNominalTest() {
+		Double result = calculator.multiplication(2, 3);
+		assert(result == 6);
+	}
+	@Test
+	void divisionByZeroTest() {
+		Exception expectedException = null;
+		try {
+			Double result = calculator.division(10, 0);
+		} catch (ArithmeticException e) {
+			expectedException = e;
+		}
+		assert(expectedException != null);
+		assert(expectedException instanceof ArithmeticException);
+	}
 }

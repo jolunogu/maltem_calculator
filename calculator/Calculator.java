@@ -30,4 +30,65 @@ public class Calculator {
 	public double execute(double x, double y, Operation op) {
 		return op.calculate(x, y);		
 	}
+	
+	
+	
+	
+	/********************************************************/
+	/* THIS PART BELOW IS ADDED AFTER TEST AT MALTEM OFFICE */
+	/********************************************************/
+	
+	/**
+	 * Execute an addition operation
+	 * @param x first operand
+	 * @param y second operand
+	 * 
+	 * @return the result of addition operation
+	 */
+	public double addition(double x, double y) {
+		Operation additionOperation = (num1, num2) -> {
+			return num1 + num2;};
+		return execute(x, y, additionOperation);
+	}
+	/**
+	 * Execute a subtraction operation
+	 * @param x first operand
+	 * @param y second operand
+	 * 
+	 * @return the result of subtraction operation
+	 */
+	public double subtraction(double x, double y) {
+		Operation subtractionOperation = (num1, num2) -> {
+			return num1 - num2;};
+		return execute(x, y, subtractionOperation);
+	}
+	/**
+	 * Execute a division operation
+	 * @param x first operand
+	 * @param y second operand
+	 * 
+	 * @return the result of division operation
+	 */
+	public double division(double x, double y) throws ArithmeticException {
+		Operation divisionOperation = (num1, num2) -> {
+			return num1/num2;};
+		double result = execute(x, y, divisionOperation);
+		if (Double.isInfinite(result)) {
+			throw new ArithmeticException("overflow");
+		}
+
+		return result;
+	}
+	/**
+	 * Execute a multiplication operation
+	 * @param x first operand
+	 * @param y second operand
+	 * 
+	 * @return the result of multiplication operation
+	 */
+	public double multiplication(double x, double y) {
+		Operation multiplicationOperation = (num1, num2) -> {
+			return num1*num2;};
+		return execute(x, y, multiplicationOperation);
+	}
 }

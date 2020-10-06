@@ -80,4 +80,27 @@ public class CalculatorTest {
 		assert(expectedException != null);
 		assert(expectedException instanceof ArithmeticException);
 	}
+	
+	@Test
+	void operationsUsingCalculatorOperatorsTest() {
+		Double resultAdd = calculator.execute(2, 3,calculator.additionOp);
+		Double resultSub = calculator.execute(2, 3,calculator.subtractionOp);
+		Double resultDiv = calculator.execute(10, 2, calculator.divisionOp);
+		Double resultMult = calculator.execute(2, 3, calculator.multiplicationOp);
+		
+		Exception expectedException = null;
+		try {
+			Double resultDivByZero = calculator.execute(10, 0, calculator.divisionOp);
+		} catch (ArithmeticException e) {
+			expectedException = e;
+		}
+		
+		assert(resultAdd == 5);
+		assert(resultSub == -1);
+		assert(resultDiv == 5);
+		assert(resultMult == 6);
+		
+		assert(expectedException != null);
+		assert(expectedException instanceof ArithmeticException);
+	}
 }
